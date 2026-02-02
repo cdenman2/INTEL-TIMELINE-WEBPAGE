@@ -4,13 +4,17 @@
 *::after { box-sizing: border-box; }
 
 :root{
-  --bg:#f6f8fb;
+  /* NEW: full-page light blue background */
+  --page-bg: #d9ecff;  /* light blue */
+
   --text:#0b1220;
   --muted:#5b667a;
+
   --intel-blue:#0068b5;
   --intel-blue-dark:#004a86;
+
   --card:#ffffff;
-  --border:rgba(11,18,32,.10);
+  --border:rgba(11,18,32,.12);
   --shadow:0 10px 30px rgba(0,0,0,.12);
   --radius:16px;
 }
@@ -19,7 +23,10 @@ html,body{
   margin:0;
   padding:0;
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
+
+  /* NEW: full background light blue */
+  background: var(--page-bg);
+
   color:var(--text);
 }
 
@@ -32,13 +39,13 @@ html,body{
 /* ---------- Top Header (logos + banner) ---------- */
 .topbar{
   padding: 18px 16px 0;
-  background: var(--bg);
+  background: var(--page-bg); /* stays light blue behind header */
 }
 
 .topbar__logos{
   max-width: 1100px;
   margin: 0 auto 14px;
-  display: flex;                /* Flexbox */
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
@@ -59,6 +66,7 @@ html,body{
   line-height: 1;
 }
 
+/* Blue banner stays same */
 .topbar__banner{
   max-width: 1100px;
   margin: 0 auto;
@@ -95,7 +103,7 @@ html,body{
 .section{ margin-top: 18px; }
 
 .section__header{
-  display:flex;                 /* Flexbox */
+  display:flex;
   flex-direction:column;
   gap:6px;
   margin-bottom: 12px;
@@ -135,14 +143,18 @@ html,body{
 
 /* ---------- Timeline (Flexbox + Scroll Snap) ---------- */
 .timeline{
-  display:flex;                 /* Flexbox requirement */
+  display:flex;
   gap: 16px;
   padding: 14px;
+
   overflow-x:auto;
-  scroll-snap-type: x mandatory; /* Bonus: scroll snap */
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+
   border-radius: var(--radius);
+
+  /* Keep timeline "block" lighter than page background */
   background: rgba(255,255,255,.55);
   border: 1px solid var(--border);
 }
@@ -160,7 +172,7 @@ html,body{
 /* ---------- Cards ---------- */
 .card{
   flex: 0 0 300px;
-  display:flex;                 /* Flexbox */
+  display:flex;
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
@@ -172,7 +184,7 @@ html,body{
   cursor: pointer;
 }
 
-/* Media area: give padding so the 2.5px outline is fully visible */
+/* Media area: padding allows border to show */
 .card__media{
   position:relative;
   height: 190px;
@@ -187,7 +199,7 @@ html,body{
   object-fit: cover;
   display:block;
 
-  border: 2.5px solid var(--intel-blue); /* 2 1/2 thickness */
+  border: 2.5px solid var(--intel-blue);
   border-radius: 12px;
   background:#fff;
 
@@ -195,6 +207,7 @@ html,body{
   transition: transform 250ms ease;
 }
 
+/* Year pill stays Intel blue */
 .card__year{
   position:absolute;
   top:12px;
@@ -203,14 +216,14 @@ html,body{
   color:#fff;
   padding: 6px 10px;
   border-radius: 999px;
-  font-weight: 900; /* bold year */
+  font-weight: 900;
   font-size: 13px;
   letter-spacing: .4px;
 }
 
 .card__body{
   padding: 14px 14px 16px;
-  display:flex;                 /* Flexbox */
+  display:flex;
   flex-direction: column;
   gap: 10px;
 }
@@ -252,7 +265,7 @@ html,body{
 
 .card:hover .card__details,
 .card:focus-visible .card__details{
-  max-height: 520px; /* big enough for long 2020 paragraph */
+  max-height: 520px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -267,7 +280,7 @@ html,body{
 
   .card{ flex: 1 1 auto; }
 
-  /* Touch devices: show details because hover isn't reliable */
+  /* Touch devices: show details (hover unreliable) */
   .card__details{
     max-height: none;
     opacity: 1;
