@@ -38,7 +38,7 @@ html,body{
 .topbar__logos{
   max-width: 1100px;
   margin: 0 auto 14px;
-  display: flex;
+  display: flex;                /* Flexbox */
   align-items: center;
   justify-content: center;
   gap: 18px;
@@ -95,7 +95,7 @@ html,body{
 .section{ margin-top: 18px; }
 
 .section__header{
-  display:flex;
+  display:flex;                 /* Flexbox */
   flex-direction:column;
   gap:6px;
   margin-bottom: 12px;
@@ -114,11 +114,11 @@ html,body{
 
 /* ---------- Timeline (Flexbox + Scroll Snap) ---------- */
 .timeline{
-  display:flex;
+  display:flex;                 /* Flexbox requirement */
   gap: 16px;
   padding: 14px;
   overflow-x:auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory; /* LevelUp: scroll snap */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   border-radius: var(--radius);
@@ -139,13 +139,13 @@ html,body{
 /* ---------- Cards ---------- */
 .card{
   flex: 0 0 300px;
-  display:flex;
+  display:flex;                 /* Flexbox */
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow:hidden;
-  scroll-snap-align: start;
+  scroll-snap-align: start;     /* snap per card */
   box-shadow: 0 2px 10px rgba(0,0,0,.06);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   cursor: pointer;
@@ -181,7 +181,7 @@ html,body{
 
 .card__body{
   padding: 14px 14px 16px;
-  display:flex;
+  display:flex;                 /* Flexbox */
   flex-direction: column;
   gap: 10px;
 }
@@ -223,7 +223,7 @@ html,body{
 
 .card:hover .card__details,
 .card:focus-visible .card__details{
-  max-height: 520px; /* big enough for the long 2020 paragraph */
+  max-height: 520px; /* big enough for long 2020 paragraph */
   opacity: 1;
   transform: translateY(0);
 }
@@ -231,14 +231,14 @@ html,body{
 /* ---------- Mobile: stack timeline vertically ---------- */
 @media (max-width: 700px){
   .timeline{
-    flex-direction: column;
+    flex-direction: column;     /* stacks vertically */
     overflow-x: hidden;
-    scroll-snap-type: none;
+    scroll-snap-type: none;     /* snap not needed vertically */
   }
 
   .card{ flex: 1 1 auto; }
 
-  /* On touch screens hover isn't reliable, so show details */
+  /* Touch devices: show details because hover isn't reliable */
   .card__details{
     max-height: none;
     opacity: 1;
