@@ -1,0 +1,249 @@
+/* ---------- Reset / Base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root{
+  --bg:#f6f8fb;
+  --text:#0b1220;
+  --muted:#5b667a;
+  --intel-blue:#0068b5;
+  --intel-blue-dark:#004a86;
+  --card:#ffffff;
+  --border:rgba(11,18,32,.10);
+  --shadow:0 10px 30px rgba(0,0,0,.12);
+  --radius:16px;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+:focus-visible{
+  outline: 3px solid rgba(0,104,181,.45);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* ---------- Top Header (logos + banner) ---------- */
+.topbar{
+  padding: 18px 16px 0;
+  background: var(--bg);
+}
+
+.topbar__logos{
+  max-width: 1100px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.topbar__logo{
+  width: min(320px, 78vw);
+  max-width: 360px;
+  height: auto;
+  display: block;
+}
+
+.topbar__arrow{
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--intel-blue-dark);
+  line-height: 1;
+}
+
+.topbar__banner{
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--intel-blue), var(--intel-blue-dark));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+.topbar__title{
+  margin: 0;
+  font-size: clamp(18px, 2.4vw, 32px);
+  font-weight: 900;
+  letter-spacing: .6px;
+}
+
+.topbar__subtitle{
+  margin: 10px auto 0;
+  max-width: 900px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.55;
+  opacity: .95;
+}
+
+/* ---------- Page ---------- */
+.page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.section{ margin-top: 18px; }
+
+.section__header{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom: 12px;
+}
+
+.section__title{
+  margin:0;
+  font-size: 24px;
+}
+
+.section__hint{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- Timeline (Flexbox + Scroll Snap) ---------- */
+.timeline{
+  display:flex;
+  gap: 16px;
+  padding: 14px;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+}
+
+.timeline::-webkit-scrollbar{ height: 10px; }
+.timeline::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.18);
+  border-radius: 999px;
+}
+.timeline::-webkit-scrollbar-track{
+  background: rgba(0,0,0,.06);
+  border-radius: 999px;
+}
+
+/* ---------- Cards ---------- */
+.card{
+  flex: 0 0 300px;
+  display:flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  cursor: pointer;
+}
+
+.card__media{
+  position:relative;
+  height: 180px;
+  overflow:hidden;
+}
+
+.card__media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.03);
+  transition: transform 250ms ease;
+}
+
+.card__year{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background: rgba(0,104,181,.92);
+  color:#fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900; /* bold year */
+  font-size: 13px;
+  letter-spacing: .4px;
+}
+
+.card__body{
+  padding: 14px 14px 16px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__title{
+  margin:0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Hide details until hover/focus */
+.card__details{
+  max-height: 0;
+  overflow:hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: max-height 260ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+.card__details p{
+  margin:0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Hover/focus reveals details */
+.card:hover,
+.card:focus-visible{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow);
+  border-color: rgba(0,104,181,.35);
+}
+
+.card:hover .card__media img,
+.card:focus-visible .card__media img{
+  transform: scale(1.12);
+}
+
+.card:hover .card__details,
+.card:focus-visible .card__details{
+  max-height: 520px; /* big enough for the long 2020 paragraph */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Mobile: stack timeline vertically ---------- */
+@media (max-width: 700px){
+  .timeline{
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-snap-type: none;
+  }
+
+  .card{ flex: 1 1 auto; }
+
+  /* On touch screens hover isn't reliable, so show details */
+  .card__details{
+    max-height: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .topbar__arrow{ font-size: 34px; }
+}
