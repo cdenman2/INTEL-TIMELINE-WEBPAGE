@@ -4,18 +4,19 @@
 *::after { box-sizing: border-box; }
 
 :root{
-  /* NEW: full-page light blue background */
-  --page-bg: #d9ecff;  /* light blue */
+  /* Lighter page background */
+  --page-bg: #eaf4ff;
 
-  --text:#0b1220;
-  --muted:#5b667a;
-
+  /* Intel blues */
   --intel-blue:#0068b5;
   --intel-blue-dark:#004a86;
 
-  --card:#ffffff;
-  --border:rgba(11,18,32,.12);
-  --shadow:0 10px 30px rgba(0,0,0,.12);
+  /* Text colors */
+  --text-dark:#0b1220;
+  --text-light:#ffffff;
+  --muted-light: rgba(255,255,255,.88);
+
+  --shadow:0 10px 30px rgba(0,0,0,.18);
   --radius:16px;
 }
 
@@ -23,11 +24,8 @@ html,body{
   margin:0;
   padding:0;
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-
-  /* NEW: full background light blue */
   background: var(--page-bg);
-
-  color:var(--text);
+  color: var(--text-dark);
 }
 
 :focus-visible{
@@ -36,10 +34,10 @@ html,body{
   border-radius: 12px;
 }
 
-/* ---------- Top Header (logos + banner) ---------- */
+/* ---------- Header ---------- */
 .topbar{
   padding: 18px 16px 0;
-  background: var(--page-bg); /* stays light blue behind header */
+  background: var(--page-bg);
 }
 
 .topbar__logos{
@@ -66,16 +64,16 @@ html,body{
   line-height: 1;
 }
 
-/* Blue banner stays same */
+/* Banner stays Intel blue */
 .topbar__banner{
   max-width: 1100px;
   margin: 0 auto;
   background: linear-gradient(135deg, var(--intel-blue), var(--intel-blue-dark));
-  color: #fff;
+  color: var(--text-light);
   border-radius: var(--radius);
   padding: 22px 18px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 
 .topbar__title{
@@ -100,23 +98,23 @@ html,body{
   padding: 24px 16px 60px;
 }
 
-.section{ margin-top: 18px; }
-
 .section__header{
   display:flex;
   flex-direction:column;
   gap:6px;
-  margin-bottom: 12px;
+  margin: 18px 0 12px;
 }
 
 .section__title{
   margin:0;
   font-size: 24px;
+  font-weight: 900;
+  color: var(--intel-blue-dark);
 }
 
 .section__hint{
   margin:0;
-  color: var(--muted);
+  color: rgba(0,0,0,.55);
   font-size: 14px;
 }
 
@@ -129,21 +127,22 @@ html,body{
 }
 
 .btn{
-  border: 1px solid rgba(11,18,32,.15);
-  background: #fff;
+  border: 2px solid rgba(0,104,181,.45);
+  background: #ffffff;
   padding: 8px 12px;
   border-radius: 10px;
-  font-weight: 800;
+  font-weight: 900;
   cursor: pointer;
+  color: var(--intel-blue-dark);
 }
 
 .btn:hover{
-  border-color: rgba(0,104,181,.45);
+  border-color: rgba(0,104,181,.85);
 }
 
-/* ---------- Timeline (Flexbox + Scroll Snap) ---------- */
+/* ---------- Timeline container = Intel blue block ---------- */
 .timeline{
-  display:flex;
+  display:flex; /* Flexbox requirement */
   gap: 16px;
   padding: 14px;
 
@@ -154,45 +153,49 @@ html,body{
 
   border-radius: var(--radius);
 
-  /* Keep timeline "block" lighter than page background */
-  background: rgba(255,255,255,.55);
-  border: 1px solid var(--border);
+  /* NEW: Intel blue block */
+  background: linear-gradient(135deg, var(--intel-blue), var(--intel-blue-dark));
+  box-shadow: 0 10px 26px rgba(0,0,0,.15);
 }
 
+/* Scrollbar styling (optional) */
 .timeline::-webkit-scrollbar{ height: 10px; }
 .timeline::-webkit-scrollbar-thumb{
-  background: rgba(0,0,0,.18);
+  background: rgba(255,255,255,.45);
   border-radius: 999px;
 }
 .timeline::-webkit-scrollbar-track{
-  background: rgba(0,0,0,.06);
+  background: rgba(255,255,255,.18);
   border-radius: 999px;
 }
 
-/* ---------- Cards ---------- */
+/* ---------- Cards = Intel blue blocks ---------- */
 .card{
   flex: 0 0 300px;
   display:flex;
   flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--border);
+
+  /* NEW: Intel blue card block */
+  background: linear-gradient(135deg, var(--intel-blue), var(--intel-blue-dark));
+  color: var(--text-light);
+
+  border: 2px solid rgba(255,255,255,.25);
   border-radius: var(--radius);
   overflow:hidden;
   scroll-snap-align: start;
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+
+  box-shadow: 0 2px 10px rgba(0,0,0,.10);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   cursor: pointer;
 }
 
-/* Media area: padding allows border to show */
 .card__media{
   position:relative;
   height: 190px;
   padding: 10px;
-  overflow: visible;
 }
 
-/* IMAGE: 2.5px Intel-blue outline */
+/* Image outline stays Intel blue at 2.5px */
 .card__media img{
   width:100%;
   height:100%;
@@ -201,24 +204,28 @@ html,body{
 
   border: 2.5px solid var(--intel-blue);
   border-radius: 12px;
-  background:#fff;
 
   transform: scale(1.00);
   transition: transform 250ms ease;
 }
 
-/* Year pill stays Intel blue */
+/* Timeline year pill icon */
 .card__year{
   position:absolute;
   top:12px;
   left:12px;
-  background: rgba(0,104,181,.92);
+
+  /* Keep it Intel blue (icon) */
+  background: rgba(0,104,181,.95);
   color:#fff;
+
   padding: 6px 10px;
   border-radius: 999px;
   font-weight: 900;
   font-size: 13px;
   letter-spacing: .4px;
+
+  border: 2px solid rgba(255,255,255,.35);
 }
 
 .card__body{
@@ -231,10 +238,11 @@ html,body{
 .card__title{
   margin:0;
   font-size: 16px;
-  line-height: 1.2;
+  font-weight: 900;
+  color: var(--text-light);
 }
 
-/* Hide details until hover/focus */
+/* Details hidden until hover/focus */
 .card__details{
   max-height: 0;
   overflow:hidden;
@@ -245,17 +253,17 @@ html,body{
 
 .card__details p{
   margin:0;
-  color: var(--muted);
+  color: var(--muted-light);
   line-height: 1.5;
   font-size: 14px;
 }
 
-/* Hover/focus reveals details */
+/* Hover/focus effects */
 .card:hover,
 .card:focus-visible{
   transform: translateY(-6px) scale(1.02);
   box-shadow: var(--shadow);
-  border-color: rgba(0,104,181,.35);
+  border-color: rgba(255,255,255,.55);
 }
 
 .card:hover .card__media img,
@@ -270,7 +278,7 @@ html,body{
   transform: translateY(0);
 }
 
-/* ---------- Mobile: stack timeline vertically ---------- */
+/* ---------- Mobile: stack vertically ---------- */
 @media (max-width: 700px){
   .timeline{
     flex-direction: column;
@@ -280,7 +288,7 @@ html,body{
 
   .card{ flex: 1 1 auto; }
 
-  /* Touch devices: show details (hover unreliable) */
+  /* Touch devices: show details because hover isn't reliable */
   .card__details{
     max-height: none;
     opacity: 1;
