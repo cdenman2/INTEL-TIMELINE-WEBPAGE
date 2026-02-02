@@ -16,7 +16,7 @@
       <img class="topbar__logo" src="images/logo-new.png" alt="Modern Intel logo" />
     </div>
 
-    <!-- Blue title banner -->
+    <!-- Blue banner -->
     <div class="topbar__banner">
       <h1 class="topbar__title">INTEL'S PRODUCTION AND INNOVATION THROUGH THE YEARS.</h1>
       <p class="topbar__subtitle">
@@ -30,12 +30,18 @@
       <div class="section__header">
         <h2 class="section__title">Timeline</h2>
         <p class="section__hint">
-          Desktop: scroll sideways • Mobile: stacks vertically • Hover (or Tab) a card to reveal the information
+          Desktop: scroll sideways or use buttons • Mobile: stacks vertically • Hover (or Tab) a card to reveal the information
         </p>
       </div>
 
+      <!-- Buttons so ALL cards can be reached easily -->
+      <div class="timeline-controls">
+        <button class="btn" type="button" id="prevBtn">◀ Prev</button>
+        <button class="btn" type="button" id="nextBtn">Next ▶</button>
+      </div>
+
       <!-- Flexbox timeline container -->
-      <div class="timeline" role="list">
+      <div class="timeline" role="list" id="timelineRow">
 
         <!-- 1968 -->
         <article class="card" role="listitem" tabindex="0">
@@ -136,5 +142,22 @@
       </div>
     </section>
   </main>
+
+  <!-- Small JS to move timeline left/right with buttons -->
+  <script>
+    const row = document.getElementById("timelineRow");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const scrollAmount = 340;
+
+    prevBtn.addEventListener("click", () => {
+      row.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      row.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
