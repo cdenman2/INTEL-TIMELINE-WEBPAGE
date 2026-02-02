@@ -8,138 +8,145 @@
 </head>
 
 <body>
+  <header class="page-header">
+    <h1 class="site-title">INTEL-TIMELINE-WEBPAGE</h1>
+  </header>
 
-<header class="page-header">
-  <h1 class="site-title">INTEL-TIMELINE-WEBPAGE</h1>
-</header>
+  <main class="container">
 
-<main class="container">
+    <!-- TOP LOGOS -->
+    <section class="logos-row">
+      <!-- Keep your existing filenames here (do not rename files). -->
+      <img class="logo-img" src="./images/old-intel-logo.png" alt="Old Intel logo">
+      <div class="arrow">→</div>
+      <img class="logo-img" src="./images/modern-intel-logo.png" alt="Modern Intel logo">
+    </section>
 
-  <!-- LOGOS -->
-  <section class="logos-row">
-    <img class="logo-img" src="./images/old-intel-logo.png" alt="Old Intel logo">
-    <div class="arrow">→</div>
-    <img class="logo-img" src="./images/modern-intel-logo.png" alt="Modern Intel logo">
-  </section>
+    <!-- BLUE BANNER -->
+    <section class="banner">
+      <h2>INTEL'S PRODUCTION AND INNOVATION THROUGH THE YEARS.</h2>
+      <p>with the modern technology on the rise, Intel is staying a step ahead to ensure we are in sync with the future.</p>
+    </section>
 
-  <!-- BANNER -->
-  <section class="banner">
-    <h2>INTEL'S PRODUCTION AND INNOVATION THROUGH THE YEARS.</h2>
-    <p>with the modern technology on the rise, Intel is staying a step ahead to ensure we are in sync with the future.</p>
-  </section>
+    <h2 class="timeline-title">Timeline</h2>
 
-  <!-- TIMELINE -->
-  <section class="timeline-section">
-    <div class="timeline-header">
-      <h3 class="timeline-title">Timeline</h3>
-      <div class="timeline-controls">
-        <button class="btn" id="prevBtn">◀ Prev</button>
-        <button class="btn" id="nextBtn">Next ▶</button>
-      </div>
-    </div>
-
-    <div class="timeline-strip" id="timelineStrip">
+    <!-- TIMELINE GRID -->
+    <section class="timeline-grid">
 
       <!-- 1968 -->
-      <article class="card">
+      <article class="card"
+        title="Intel was founded by Robert Noyce and Gordon Moore, who worked together at Fairchild Semiconductors based in San Jose, California, with the determination to make memory chips smaller, dependable, and high performance.">
         <div class="year-badge">1968</div>
-        <div class="img-wrap">
-          <img src="./images/intel-1968.png" alt="Intel first building">
+
+        <div class="img-wrap"
+          title="Intel was founded by Robert Noyce and Gordon Moore, who worked together at Fairchild Semiconductors based in San Jose, California, with the determination to make memory chips smaller, dependable, and high performance.">
+          <img src="./images/intel-founded.png" alt="Intel founded photo">
         </div>
-        <div class="card-body">
-          <div class="card-title">Intel Founded</div>
-          <div class="card-info">
-            Intel was founded by Robert Noyce and Gordon Moore, who worked together at Fairchild Semiconductors based in San Jose, California, with the determination to make memory chips smaller, dependable, and high performance.
-          </div>
+
+        <div class="card-title">Intel Founded</div>
+
+        <div class="details">
+          Intel was founded by Robert Noyce and Gordon Moore, who worked together at Fairchild Semiconductors based in San Jose, California, with the determination to make memory chips smaller, dependable, and high performance.
         </div>
       </article>
 
       <!-- 1971 -->
-      <article class="card">
+      <article class="card"
+        title="Intel introduces the Intel 4004 Microprocessor, the first commercial microprocessor. It was a 4-bit processor and the microprocessor was discontinued in 1982.">
         <div class="year-badge">1971</div>
-        <div class="img-wrap">
-          <img src="./images/intel-4004.png" alt="Intel 4004">
+
+        <div class="img-wrap"
+          title="Intel introduces the Intel 4004 Microprocessor, the first commercial microprocessor. It was a 4-bit processor and the microprocessor was discontinued in 1982.">
+          <img src="./images/intel-4004.png" alt="Intel 4004 microprocessor">
         </div>
-        <div class="card-body">
-          <div class="card-title">First Microprocessor</div>
-          <div class="model-line">Model: <strong>Intel 4004</strong></div>
-          <div class="card-info">
-            Intel produced and introduced the first commercial microprocessor, the Intel 4004. It was a 4-bit processor that helped spark modern computing innovation. The Intel 4004 was discontinued in 1982.
-          </div>
+
+        <div class="card-title">First Microprocessor</div>
+        <div class="model-line">Model: <strong>Intel 4004</strong></div>
+
+        <div class="details">
+          Intel introduces the Intel 4004 Microprocessor, the first commercial microprocessor. It was a <strong>4-bit processor</strong> and the microprocessor was discontinued in <strong>1982</strong>.
         </div>
       </article>
 
       <!-- 1978 -->
-      <article class="card">
+      <article class="card"
+        title="Intel introduces the Intel 8086 Microprocessor which started the X86 innovation into personal computers with a 16 bit processor. It also was discontinued in 1998.">
         <div class="year-badge">1978</div>
-        <div class="img-wrap">
-          <img src="./images/intel-8086.png" alt="Intel 8086">
+
+        <div class="img-wrap"
+          title="Intel introduces the Intel 8086 Microprocessor which started the X86 innovation into personal computers with a 16 bit processor. It also was discontinued in 1998.">
+          <img src="./images/intel-8086.png" alt="Intel 8086 microprocessor">
         </div>
-        <div class="card-body">
-          <div class="card-title">Intel 8086</div>
-          <div class="model-line">Model: <strong>Intel 8086</strong></div>
-          <div class="card-info">
-            Intel introduces the Intel 8086 microprocessor which started the x86 innovation into personal computers with a 16-bit processor. It was discontinued in 1998.
-          </div>
+
+        <div class="card-title">Intel 8086</div>
+        <div class="model-line">Model: <strong>Intel 8086</strong></div>
+
+        <div class="details">
+          Intel introduces the Intel 8086 Microprocessor which started the X86 innovation into personal computers with a <strong>16-bit processor</strong>. It was discontinued in <strong>1998</strong>.
         </div>
       </article>
 
       <!-- 1985 -->
-      <article class="card">
+      <article class="card"
+        title="Intel introduces the 32 bit processor with 275K transistors which was incorporated into many Personal Computers. It also was discontinued in 2007.">
         <div class="year-badge">1985</div>
-        <div class="img-wrap">
-          <img src="./images/intel-80386.png" alt="Intel 80386">
+
+        <div class="img-wrap"
+          title="Intel introduces the 32 bit processor with 275K transistors which was incorporated into many Personal Computers. It also was discontinued in 2007.">
+          <img src="./images/intel-80386.png" alt="Intel 80386 processor">
         </div>
-        <div class="card-body">
-          <div class="card-title">32-bit Processor (386)</div>
-          <div class="model-line">Model: <strong>Intel 80386</strong></div>
-          <div class="card-info">
-            Intel introduces the 32-bit processor, the Intel 80386, containing 275K transistors and incorporated into many personal computers. It was discontinued in 2007.
-          </div>
+
+        <!-- ✅ REPLACED headline exactly as you requested -->
+        <div class="card-title">Intel 80386</div>
+
+        <div class="details">
+          Intel introduces the <strong>32-bit processor</strong> with <strong>275K transistors</strong> which was incorporated into many Personal Computers. It was discontinued in <strong>2007</strong>.
         </div>
       </article>
 
       <!-- 2006 -->
-      <article class="card">
+      <article class="card"
+        title="Intel introduces the Intel Core 2 Duo Microprocessor which was a 64 bit that increased the power consumption and boosted performance which was a major asset in computing on Personal Computers and Laptops. It also was discontinued in 2008.">
         <div class="year-badge">2006</div>
-        <div class="img-wrap">
+
+        <div class="img-wrap"
+          title="Intel introduces the Intel Core 2 Duo Microprocessor which was a 64 bit that increased the power consumption and boosted performance which was a major asset in computing on Personal Computers and Laptops. It also was discontinued in 2008.">
           <img src="./images/intel-core2duo.png" alt="Intel Core 2 Duo">
         </div>
-        <div class="card-body">
-          <div class="card-title">Intel Core 2 Duo</div>
-          <div class="model-line">Model: <strong>Intel Core 2 Duo</strong></div>
-          <div class="card-info">
-            Intel introduces the Intel Core 2 Duo microprocessor, a 64-bit CPU that improved performance and efficiency for personal computers and laptops. It was discontinued in 2008.
-          </div>
+
+        <div class="card-title">Intel Core 2 Duo</div>
+
+        <div class="details">
+          Intel introduces the Intel Core 2 Duo Microprocessor which was a <strong>64-bit</strong> that increased the power consumption and boosted performance which was a major asset in computing on Personal Computers and Laptops. It was discontinued in <strong>2008</strong>.
         </div>
       </article>
 
       <!-- 2020 -->
-      <article class="card">
+      <article class="card"
+        title="Intel introduces a few products including the Intel Atom PS900, the Intel 3rd Gen Xeon Scalable, and the 10nm-based 11th Gen Intel Core. All three processors are still being used to this day and not discontinued. Another fact is that Intel was at the frontlines of AI and 5g Production.">
         <div class="year-badge">2020</div>
-        <div class="img-wrap">
+
+        <div class="img-wrap"
+          title="Intel introduces a few products including the Intel Atom PS900, the Intel 3rd Gen Xeon Scalable, and the 10nm-based 11th Gen Intel Core. All three processors are still being used to this day and not discontinued. Another fact is that Intel was at the frontlines of AI and 5g Production.">
           <img src="./images/intel-atom.png" alt="Intel Atom">
         </div>
-        <div class="card-body">
-          <div class="card-title">2020 Product Advances</div>
-          <div class="model-line">Status: <strong>Not Discontinued</strong></div>
-          <div class="card-info">
-            Intel introduces products including the Intel Atom PS900, the 3rd Gen Xeon Scalable, and the 10nm-based 11th Gen Intel Core. These processors focus on low power consumption, high workloads, and high-resolution graphics. Intel was also at the frontlines of AI and 5G production.
-          </div>
+
+        <div class="card-title">2020 Product Advances</div>
+
+        <div class="details">
+          Intel introduces a few products including the <strong>Intel Atom PS900</strong>, the <strong>Intel 3rd Gen Xeon Scalable</strong>, and the <strong>10nm-based 11th Gen Intel Core</strong>.
+          <br><br>
+          <strong>Intel Atom PS900</strong>: primarily built for low power consumption and embedding file applications on netbooks.
+          <br>
+          <strong>Intel 3rd Gen Xeon Scalable</strong>: could achieve 80 cores and was built for high workloads and performance with power efficiency.
+          <br>
+          <strong>Intel 11th Gen Intel Core</strong>: built for high resolution with graphics.
+          <br><br>
+          All three processors are still being used to this day and <strong>not discontinued</strong>. Another fact is that Intel was at the frontlines of <strong>AI</strong> and <strong>5G</strong> production.
         </div>
       </article>
 
-    </div>
-  </section>
-</main>
-
-<script>
-  const strip = document.getElementById("timelineStrip");
-  document.getElementById("prevBtn").onclick = () =>
-    strip.scrollBy({ left: -320, behavior: "smooth" });
-  document.getElementById("nextBtn").onclick = () =>
-    strip.scrollBy({ left: 320, behavior: "smooth" });
-</script>
-
+    </section>
+  </main>
 </body>
 </html>
