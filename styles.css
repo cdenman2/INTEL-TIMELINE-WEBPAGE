@@ -1,239 +1,310 @@
+/* ========= Base ========= */
+* { box-sizing: border-box; }
+
 :root{
   --intel-blue: #0068B5;
-  --page-bg: #DDEEFF;
-  --text: #0b1b2b;
-  --muted: #4a5a6a;
-  --shadow: 0 10px 25px rgba(0,0,0,.12);
-  --radius: 18px;
-  --border: 2.5px; /* required outline thickness */
+  --intel-blue-dark: #005A9E;
+  --light-blue: #EAF4FF;
+  --card-border: #0068B5;
+  --text: #0b1220;
+  --muted: #4b5563;
+  --shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
-/* Base */
-*{ box-sizing: border-box; }
-body{
+html, body{
   margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--page-bg);
   color: var(--text);
+  background: var(--light-blue);
 }
+
+.page-header{
+  padding: 16px 20px;
+  font-weight: 800;
+}
+
+.page-header h1{
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+/* ========= Layout ========= */
 .container{
-  width: min(1100px, 92vw);
-  margin: 0 auto;
-  padding: 22px 0 40px;
+  width: min(1200px, 92vw);
+  margin: 0 auto 50px auto;
 }
 
-/* Header */
-.page-header{ padding: 16px 0 0; }
-
-.site-title{
-  margin: 0 0 14px;
-  padding: 0 4vw;
-  font-size: 28px;
-  letter-spacing: .6px;
-}
-
-.logo-row{
+/* ========= Logos ========= */
+.logos{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 18px;
-  margin: 10px 0 18px;
-  padding: 0 16px;
+  margin: 12px 0 18px;
 }
 
-/* EXACT SIZE: 4in x 4in */
+/* Default logo size */
 .logo{
-  width: 4in;
-  height: 4in;
+  width: 400px;   /* big on desktop */
+  height: 400px;
   object-fit: contain;
-  display: block;
-  border-radius: 10px;
+  background: transparent;
 }
 
-.logo-arrow{
-  font-size: 44px;
-  font-weight: 700;
-  color: var(--intel-blue);
+/* Tablet fix: shrink ONLY old logo so it shows fully */
+@media (min-width: 768px) and (max-width: 1024px){
+  .logo-old{
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.arrow{
+  font-size: 42px;
+  color: var(--intel-blue-dark);
+  font-weight: 800;
   line-height: 1;
 }
 
-/* Hero block */
+/* ========= Hero Banner ========= */
 .hero{
-  width: min(920px, 92vw);
-  margin: 0 auto;
   background: var(--intel-blue);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 22px;
+  color: white;
+  border-radius: 12px;
+  padding: 22px 26px;
   box-shadow: var(--shadow);
   text-align: center;
+  margin: 10px auto 26px auto;
 }
+
 .hero h2{
   margin: 0 0 8px;
-  font-size: 20px;
-  letter-spacing: .4px;
+  font-size: 28px;
+  letter-spacing: 0.4px;
 }
+
 .hero p{
   margin: 0;
-  opacity: .95;
-  font-size: 13.5px;
+  font-size: 14px;
+  opacity: 0.95;
 }
 
-/* Section header */
-.section-head{ margin: 22px 0 10px; }
-.section-head h3{ margin: 0; font-size: 20px; }
-.hint{
-  margin: 6px 0 0;
-  font-size: 12px;
-  color: rgba(0,0,0,.55);
+/* ========= Timeline Header ========= */
+.timeline-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
 
-/* Timeline: horizontal scroll on desktop */
+.timeline-header h3{
+  margin: 0;
+  font-size: 22px;
+}
+
+.controls{
+  display: flex;
+  gap: 10px;
+}
+
+.btn{
+  border: 2px solid #7aaee0;
+  background: #f6fbff;
+  color: #0b3b63;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover{
+  filter: brightness(0.98);
+}
+
+/* ========= Timeline Shell ========= */
+.timeline-shell{
+  background: var(--intel-blue);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Desktop: horizontal scroll */
 .timeline{
   display: flex;
-  gap: 16px;
-  overflow-x: auto;                /* shows scrollbar */
-  padding: 14px 10px 18px;
-  scroll-snap-type: x mandatory;   /* bonus */
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  border-radius: 16px;
 }
 
-/* Visible scrollbar */
-.timeline::-webkit-scrollbar{ height: 12px; }
-.timeline::-webkit-scrollbar-thumb{
-  background: rgba(0,104,181,.45);
-  border-radius: 999px;
+/* Visible scrollbar (Chrome/Edge) */
+.timeline::-webkit-scrollbar{
+  height: 12px;
 }
 .timeline::-webkit-scrollbar-track{
-  background: rgba(255,255,255,.55);
+  background: rgba(255,255,255,0.25);
+  border-radius: 999px;
+}
+.timeline::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.7);
   border-radius: 999px;
 }
 
-/* Card */
+/* ========= Cards ========= */
 .card{
   position: relative;
-  flex: 0 0 280px;
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px;
+  width: 260px;
+  min-width: 260px;
   scroll-snap-align: start;
+  border: 2.5px solid var(--card-border);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
   outline: none;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.card:hover,
-.card:focus{
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Year pill */
-.year-pill{
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.14);
+}
+
+/* Year badge */
+.year{
   position: absolute;
   top: 10px;
   left: 10px;
   background: var(--intel-blue);
   color: #fff;
+  font-weight: 800;
+  font-size: 13px;
   padding: 6px 10px;
   border-radius: 999px;
-  font-weight: 700;
-  font-size: 12px;
   z-index: 2;
 }
 
-/* Image frame keeps image from ever "taking over" the card */
-.img-frame{
-  width: 100%;
-  display: grid;
-  place-items: center;
-  padding: 14px 14px 8px;
-  background: #fff;
-}
-
-/* EXACT SIZE: 2in x 2in */
-.card-img{
-  width: 2in;
-  height: 2in;
-  object-fit: cover;
-  display: block;
-
-  /* Intel-blue outline at 2.5px */
-  border: var(--border) solid var(--intel-blue);
+/* Image wrap */
+.image-wrap{
+  background: #ffffff;
   border-radius: 12px;
+  padding: 8px;
+  margin-top: 18px;
+  border: 2.5px solid var(--card-border);
 }
 
-/* Text */
-.card-body{
-  padding: 10px 14px 14px;
+/* Timeline images size (keeps your 2" target) */
+.card-img{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
+/* Title text */
 .card-title{
-  margin: 0 0 6px;
-  font-size: 15px;
-  font-weight: 800;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #0b2a45;
 }
 
-.card-model{
-  margin: 0 0 8px;
-  font-size: 12.5px;
-  color: var(--muted);
+.card-subtitle{
+  margin-top: 4px;
+  font-size: 13px;
   font-weight: 700;
+  color: #184a73;
 }
 
-/* HOVER FEATURE (rubric):
-   details hidden by default; reveal on hover OR keyboard focus */
+/* Hover reveal */
 .card-details{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height .25s ease, opacity .25s ease, padding-top .25s ease;
-  border-top: 1px solid rgba(0,0,0,.08);
-  padding-top: 0;
+
+  transition: max-height 0.25s ease, opacity 0.25s ease;
 }
+
 .card:hover .card-details,
 .card:focus .card-details,
 .card:focus-within .card-details{
-  max-height: 220px;
+  max-height: 320px;
   opacity: 1;
-  padding-top: 10px;
-}
-.card-details p{
-  margin: 0;
-  font-size: 12.8px;
-  line-height: 1.35;
 }
 
-/* Footer */
-.footer{
-  text-align: center;
-  padding: 18px 10px 30px;
-  color: rgba(0,0,0,.55);
-  font-size: 12px;
+.card-details ul{
+  padding-left: 16px;
+  margin: 8px 0 0;
+}
+.card-details li{
+  margin: 6px 0;
 }
 
-/* Mobile: stacks vertically and scales images so it fits */
-@media (max-width: 720px){
-  .timeline{
+/* ========= Responsive ========= */
+@media (max-width: 768px){
+  .logos{
     flex-direction: column;
-    overflow-x: visible;
-    padding: 10px 0 0;
+    gap: 8px;
+  }
+
+  .logo{
+    width: 240px;
+    height: 240px;
+  }
+
+  .arrow{
+    font-size: 34px;
+  }
+
+  .hero h2{
+    font-size: 20px;
+  }
+
+  .timeline-header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .controls{
+    width: 100%;
+  }
+
+  .btn{
+    flex: 1;
+  }
+
+  /* Stack timeline vertically */
+  .timeline{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow: visible;
+    padding-bottom: 0;
     scroll-snap-type: none;
   }
 
   .card{
-    flex: 1 1 auto;
     width: 100%;
+    min-width: 0;
   }
 
-  /* On small screens, keep the look but prevent overflow */
+  /* keep images consistent */
   .card-img{
-    width: min(2in, 70vw);
-    height: min(2in, 70vw);
-  }
-
-  .logo{
-    width: min(4in, 80vw);
-    height: min(4in, 80vw);
+    width: 200px;
+    height: 200px;
   }
 }
