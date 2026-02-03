@@ -1,8 +1,7 @@
 :root{
-  --intel-blue: #0068B5;
-  --intel-blue-dark: #005a9c;
-  --page-light-blue: #EAF4FF;
-  --shadow: 0 14px 28px rgba(0,0,0,0.14);
+  --intel-blue: #0071c5;
+  --intel-blue-dark: #005b9f;
+  --page-light: #d9ecff; /* light blue background */
 }
 
 *{ box-sizing: border-box; }
@@ -10,225 +9,149 @@
 body{
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--page-light-blue); /* full page light blue */
+  background: var(--page-light);
   color: #0b1b2b;
 }
 
-.page-header{
-  padding: 18px 22px 8px;
+.topbar{
+  padding: 18px 22px;
 }
-
-.page-title{
-  margin: 0 0 14px;
-  font-size: 28px;
+.topbar h1{
+  margin: 0;
+  font-size: 26px;
   font-weight: 900;
+  letter-spacing: 0.5px;
 }
 
-.logo-row{
+.page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 18px 50px;
+}
+
+/* Logos row */
+.logos{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin: 0 0 16px;
+  margin-top: 6px;
 }
-
 .logo{
-  width: 280px;
-  max-width: 44vw;
-  height: auto;
+  height: 110px;
+  width: auto;
   display: block;
 }
-
-.logo-arrow{
+.arrow{
   font-size: 44px;
   font-weight: 900;
-  color: var(--intel-blue);
+  color: var(--intel-blue-dark);
 }
 
+/* Big blue block */
 .hero{
-  max-width: 980px;
-  margin: 0 auto;
-  background: var(--intel-blue);
+  margin: 18px auto 26px;
+  background: var(--intel-blue-dark);
   color: #fff;
-  border-radius: 14px;
-  padding: 18px 16px;
-  box-shadow: var(--shadow);
+  padding: 22px;
+  border-radius: 12px;
+  max-width: 860px;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.10);
   text-align: center;
 }
-
 .hero h2{
   margin: 0 0 8px;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
 }
-
 .hero p{
   margin: 0;
   font-size: 14px;
   opacity: 0.95;
 }
 
-.content{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 8px 22px 28px;
-}
-
+/* Timeline */
 .section-title{
-  margin: 18px 0 10px;
+  margin: 0 0 10px;
   font-size: 22px;
   font-weight: 900;
-  color: #0a2b44;
 }
 
-.controls{
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin: 8px 0 10px;
-}
-
-.btn{
-  background: #fff;
-  color: #0b1b2b;
-  border: 2px solid rgba(0,104,181,0.45);
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.btn:hover{
-  border-color: var(--intel-blue);
-}
-
-/* Timeline strip (desktop): sideways scroll */
 .timeline{
   display: flex;
   gap: 16px;
-  padding: 14px;
-  background: rgba(0, 104, 181, 0.10);
+  padding: 16px;
+  background: var(--intel-blue-dark);
   border-radius: 14px;
+  box-shadow: 0 12px 22px rgba(0,0,0,0.10);
   overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
-.timeline::-webkit-scrollbar{ height: 10px; }
-.timeline::-webkit-scrollbar-thumb{
-  background: rgba(0, 104, 181, 0.35);
-  border-radius: 999px;
-}
-
-/* Card look like your screenshot */
+/* Cards */
 .card{
-  position: relative;
-  flex: 0 0 290px;
-  background: var(--intel-blue);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
+  flex: 0 0 260px;
+  background: #fff;
+  border-radius: 14px;
   padding: 12px;
-  scroll-snap-align: start;
-  color: #fff;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.10);
 }
 
-/* Year badge */
 .year{
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #0a79cf;
+  background: var(--intel-blue-dark);
+  color: #fff;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 13px;
   padding: 6px 10px;
   border-radius: 999px;
 }
 
-/* Image area */
-.image-wrap{
-  margin-top: 26px;
-  background: rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 10px;
+/* Image outline: EXACT request = 2.5px Intel blue */
+.imgbox{
+  margin-top: 18px;
+  height: 150px;
+  border-radius: 12px;
+  border: 2.5px solid var(--intel-blue-dark);
+  overflow: hidden;
+  background: #fff;
 }
 
-.image-wrap img{
+.imgbox img{
   width: 100%;
-  height: 160px;
+  height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 12px;
-  background: #fff;
-
-  /* Your request: blue outline 2.5 thickness */
-  border: 2.5px solid var(--intel-blue);
 }
 
-/* Caption area */
-.caption{
+.card-title{
   margin-top: 10px;
-  background: rgba(0,0,0,0.10);
-  border-radius: 12px;
-  padding: 10px;
-  min-height: 70px;
-}
-
-.caption-title{
   font-weight: 900;
   font-size: 15px;
-  margin-bottom: 4px;
 }
 
-.caption-sub{
-  font-size: 13px;
-  font-weight: 800;
-  opacity: 0.95;
-  min-height: 16px;
+.card-sub{
+  margin-top: 4px;
+  font-weight: 900;
+  color: var(--intel-blue-dark);
+  font-size: 14px;
 }
 
-/* Desktop behavior:
-   Hide detail by default, reveal on hover/focus (like “card reveal”) */
-.caption-detail{
-  margin-top: 8px;
-  font-size: 13px;
-  line-height: 1.35;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.2s ease, max-height 0.2s ease;
-}
-
-/* Reveal on hover/focus for desktop */
-.card:hover .caption-detail,
-.card:focus-within .caption-detail{
-  opacity: 1;
-  max-height: 200px;
-}
-
-/* Mobile behavior:
-   No hover—so show details automatically AND stack vertically */
+/* Mobile stacks automatically */
 @media (max-width: 700px){
-  .logo-row{
-    flex-direction: column;
-  }
-
-  .logo-arrow{
-    font-size: 34px;
-  }
+  .logos{ gap: 10px; }
+  .logo{ height: 80px; }
+  .arrow{ font-size: 34px; }
 
   .timeline{
     flex-direction: column;
-    overflow: visible;
+    overflow-x: hidden;
   }
-
   .card{
     flex: 1 1 auto;
-    width: 100%;
-  }
-
-  .caption-detail{
-    opacity: 1;
-    max-height: 400px;
   }
 }
