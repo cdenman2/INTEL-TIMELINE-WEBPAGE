@@ -1,135 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INTEL-TIMELINE-WEBPAGE</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header class="topbar">
+  <header class="header">
     <h1>INTEL-TIMELINE-WEBPAGE</h1>
+
+    <div class="logos">
+      <img src="images/logo-old.png" alt="Old Intel logo">
+      <span class="arrow">→</span>
+      <img src="images/logo-new.png" alt="Modern Intel logo">
+    </div>
+
+    <div class="hero">
+      <h2>INTEL'S PRODUCTION AND INNOVATION THROUGH THE YEARS.</h2>
+      <p>with the modern technology on the rise, Intel is staying a step ahead to ensure we are in sync with the future.</p>
+    </div>
   </header>
 
-  <main class="page">
-    <!-- Logos -->
-    <section class="logos">
-      <img src="images/logo-old.png" alt="Old Intel logo" class="logo" />
-      <div class="arrow">→</div>
-      <img src="images/logo-new.png" alt="Modern Intel logo" class="logo" />
-    </section>
+  <main class="main">
+    <h3 class="timeline-title">Timeline</h3>
 
-    <!-- Big Intel-blue banner -->
-    <section class="banner">
-      <h2>INTEL'S PRODUCTION AND INNOVATION THROUGH THE YEARS.</h2>
-      <p>
-        with the modern technology on the rise, Intel is staying a step ahead to ensure we are in sync with the future.
-      </p>
-    </section>
-
-    <section class="section-title">
-      <h3>Timeline</h3>
-    </section>
-
-    <!-- Timeline row -->
-    <section class="timeline" aria-label="Intel Timeline">
-
+    <section class="timeline">
       <!-- 1968 -->
       <article class="card">
-        <div class="year-pill">1968</div>
+        <div class="year">1968</div>
         <div class="imgbox">
-          <img src="images/1968.png" alt="Intel founded - staff and first building" />
+          <img src="images/1968.png" alt="Intel founded">
         </div>
-        <div class="card-text">
-          <h4>Intel Founded</h4>
-          <p>
-            Intel was founded by Robert Noyce and Gordon Moore, who worked together at Fairchild Semiconductors in San Jose, California,
-            with the determination to make memory chips smaller, dependable, and high performance.
-          </p>
-        </div>
+        <h4>Intel Founded</h4>
       </article>
 
       <!-- 1971 -->
       <article class="card">
-        <div class="year-pill">1971</div>
+        <div class="year">1971</div>
         <div class="imgbox">
-          <img src="images/1971.png" alt="Intel 4004 microprocessor" />
+          <img src="images/1971.png" alt="Intel 4004">
         </div>
-        <div class="card-text">
-          <h4>First Microprocessor</h4>
-          <p class="model"><strong>Model:</strong> Intel 4004</p>
-          <p>
-            Intel produced and introduced the first commercial microprocessor (Intel 4004), a 4-bit processor that helped spark modern computing innovation.
-            The Intel 4004 was discontinued in 1982.
-          </p>
-        </div>
+        <h4>First Microprocessor</h4>
+        <p class="model">Intel 4004</p>
       </article>
 
       <!-- 1978 -->
       <article class="card">
-        <div class="year-pill">1978</div>
+        <div class="year">1978</div>
         <div class="imgbox">
-          <img src="images/1978.png" alt="Intel 8086 microprocessor" />
+          <img src="images/1978.png" alt="Intel 8086">
         </div>
-        <div class="card-text">
-          <h4>Intel 8086</h4>
-          <p class="model"><strong>Model:</strong> Intel 8086</p>
-          <p>
-            Intel introduces the Intel 8086 microprocessor, starting the x86 innovation into personal computers with a 16-bit processor.
-            It was discontinued in 1998.
-          </p>
-        </div>
+        <h4>Intel 8086</h4>
       </article>
 
       <!-- 1985 -->
       <article class="card">
-        <div class="year-pill">1985</div>
+        <div class="year">1985</div>
         <div class="imgbox">
-          <img src="images/1985.png" alt="Intel 80386 microprocessor" />
+          <img src="images/1985.png" alt="Intel 80386">
         </div>
-        <div class="card-text">
-          <h4>Intel 80386</h4>
-          <p class="model"><strong>Model:</strong> Intel 80386</p>
-          <p>
-            Intel introduces the Intel 80386 processor with 275K transistors, incorporated into many personal computers.
-            It was discontinued in 2007.
-          </p>
-        </div>
+        <h4>Intel 80386</h4>
       </article>
 
       <!-- 2006 -->
       <article class="card">
-        <div class="year-pill">2006</div>
+        <div class="year">2006</div>
         <div class="imgbox">
-          <img src="images/2006.png" alt="Intel Core 2 Duo processor" />
+          <img src="images/2006.png" alt="Intel Core 2 Duo">
         </div>
-        <div class="card-text">
-          <h4>Intel Core 2 Duo</h4>
-          <p class="model"><strong>Model:</strong> Intel Core 2 Duo</p>
-          <p>
-            Intel introduces the Intel Core 2 Duo microprocessor, a 64-bit CPU that improved performance and efficiency for personal computers and laptops.
-            It was discontinued in 2008.
-          </p>
-        </div>
+        <h4>Intel Core 2 Duo</h4>
       </article>
 
       <!-- 2020 -->
       <article class="card">
-        <div class="year-pill">2020</div>
+        <div class="year">2020</div>
         <div class="imgbox">
-          <img src="images/2020.png" alt="Intel product advances in 2020" />
+          <img src="images/2020.png" alt="Intel 2020 products">
         </div>
-        <div class="card-text">
-          <h4>2020 Product Advances</h4>
-          <p class="model"><strong>Still Active:</strong> Not discontinued</p>
-          <p>
-            Intel introduces products including the Intel Atom P5900, 3rd Gen Xeon Scalable, and 10nm-based 11th Gen Intel Core.
-            All three are still being used today and are not discontinued.
-          </p>
-        </div>
+        <h4>2020 Product Advances</h4>
       </article>
-
     </section>
   </main>
 </body>
